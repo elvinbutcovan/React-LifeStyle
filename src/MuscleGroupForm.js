@@ -1,8 +1,15 @@
 import React, { useState } from "react";
+import styles from './App.module.css';
 
 const MuscleGroupForm = () => {
   const [muscleGroups, setMuscleGroups] = useState([{ muscleType: "", reps: "", weight: "" }]);
   const [result, setResult] = useState("");
+
+  const removeMuscleGroup = (index) => {
+    setMuscleGroups((prevMuscleGroups) => {
+      return prevMuscleGroups.filter((_, i) => i !== index);
+    });
+  };
 
   const addMuscleGroup = () => {
     setMuscleGroups([...muscleGroups, { muscleType: "", reps: "", weight: "" }]);
@@ -63,46 +70,63 @@ const MuscleGroupForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <div>
           {muscleGroups.map((group, index) => (
             <div key={index} className="muscle-group">
-              <label htmlFor="muscle-type">Muscle Type:</label>
-              <input
-                type="text"
-                required
+              <label htmlFor="muscle-type">Muscle Type: </label>
+              <select
                 value={group.muscleType}
                 onChange={(e) => updateMuscleGroup(index, "muscleType", e.target.value)}
-              />
-              <label htmlFor="reps">Reps:</label>
+                required
+              >
+                <option value="">Select muscle group</option>
+                <option value="Chest">Chest</option>
+                <option value="Triceps">Triceps</option>
+                <option value="Biceps">Biceps</option>
+                <option value="Back">Back</option>
+                <option value="Legs">Legs</option>
+              </select>
+              <label htmlFor="reps"> Reps: </label>
               <input
                 type="number"
                 required
                 min="1"
+                max="60"
                 step="1"
                 value={group.reps}
                 onChange={(e) => updateMuscleGroup(index, "reps", parseInt(e.target.value))}
               />
-              <label htmlFor="weight">Weight:</label>
+              <label htmlFor="weight"> Weight: </label>
               <input
                 type="number"
                 required
                 min="0"
+                max="500"
                 step="1"
                 value={group.weight}
                 onChange={(e) => updateMuscleGroup(index, "weight", parseInt(e.target.value))}
               />
+              <label htmlFor="weight">  </label>
+              <button className={styles.button}
+                type="button"
+                onClick={() => removeMuscleGroup(index)}
+                disabled={muscleGroups.length === 1}
+              >
+                Remove
+              </button>
             </div>
           ))}
         </div>
-        <button type="button" onClick={addMuscleGroup}>
+        <button type="button" onClick={addMuscleGroup} className={styles.button}>
           Add Muscle Group
-        </button>
-        <button type="submit">Submit</button>
+        </button >
+        <label htmlFor="weight">  </label>
+        <button type="submit" className={styles.button}>Submit</button>
       </form>
       <div>
         {Array.isArray(result) ? (
-        <table>
+        <table className={styles.outputTable}>
           <thead>
             <tr>
               <th>Muscle Type</th>
