@@ -12,9 +12,9 @@
   }
   
   .outputTable th {
-    background-color: #2664df;
+    background-color: #230e47;
     font-weight: bold;
-    color: white;
+    color: rgb(222, 225, 159);
   }
   
   .outputTable tr:nth-child(even) {
@@ -22,8 +22,8 @@
   }
 
   .button {
-    background-color: #2664df;
-    color: white;
+    background-color: #230e47;
+    color: rgb(222, 225, 159);
     border: none;
     padding: 3px 16px;
     cursor: pointer;

@@ -5,6 +5,12 @@ const MuscleGroupForm = () => {
   const [muscleGroups, setMuscleGroups] = useState([{ muscleType: "", reps: "", weight: "" }]);
   const [result, setResult] = useState("");
 
+  const isMuscleGroupDisabled = (muscleGroup, currentIndex) => {
+    return muscleGroups.some(
+      (group, index) => group.muscleType === muscleGroup && index !== currentIndex
+    );
+  };
+
   const removeMuscleGroup = (index) => {
     setMuscleGroups((prevMuscleGroups) => {
       return prevMuscleGroups.filter((_, i) => i !== index);
@@ -81,11 +87,24 @@ const MuscleGroupForm = () => {
                 required
               >
                 <option value="">Select muscle group</option>
-                <option value="Chest">Chest</option>
-                <option value="Triceps">Triceps</option>
-                <option value="Biceps">Biceps</option>
-                <option value="Back">Back</option>
-                <option value="Legs">Legs</option>
+                <option value="Chest" disabled={isMuscleGroupDisabled("Chest", index)}>
+                  Chest
+                </option>
+                <option value="Shoulders" disabled={isMuscleGroupDisabled("Shoulders", index)}>
+                  Shoulders
+                </option>
+                <option value="Triceps" disabled={isMuscleGroupDisabled("Triceps", index)}>
+                  Triceps
+                </option>
+                <option value="Biceps" disabled={isMuscleGroupDisabled("Biceps", index)}>
+                  Biceps
+                </option>
+                <option value="Back" disabled={isMuscleGroupDisabled("Back", index)}>
+                  Back
+                </option>
+                <option value="Legs" disabled={isMuscleGroupDisabled("Legs", index)}>
+                  Legs
+                </option>
               </select>
               <label htmlFor="reps"> Reps: </label>
               <input
@@ -118,8 +137,13 @@ const MuscleGroupForm = () => {
             </div>
           ))}
         </div>
-        <button type="button" onClick={addMuscleGroup} className={styles.button}>
-          Add Muscle Group
+        <button 
+          type="button"
+          onClick={addMuscleGroup} 
+          className={styles.button}
+          disabled={muscleGroups.length >= 6}
+        >
+            Add Muscle Group
         </button >
         <label htmlFor="weight">  </label>
         <button type="submit" className={styles.button}>Submit</button>
