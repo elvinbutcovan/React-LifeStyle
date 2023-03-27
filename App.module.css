@@ -1,0 +1,30 @@
+.outputTable {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 75%;
+  }
+  
+  .outputTable th,
+  .outputTable td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .outputTable th {
+    background-color: #230e47;
+    font-weight: bold;
+    color: rgb(222, 225, 159);
+  }
+  
+  .outputTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .button {
+    background-color: #230e47;
+    color: rgb(222, 225, 159);
+    border: none;
+    padding: 3px 16px;
+    cursor: pointer;
+  }
