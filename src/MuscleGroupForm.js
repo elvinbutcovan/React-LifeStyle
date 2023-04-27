@@ -1,10 +1,13 @@
+// Import necessary modules and components
 import React, { useState } from "react";
 import styles from './App.module.css';
 
+// MuscleGroupForm component
 const MuscleGroupForm = () => {
   const [muscleGroups, setMuscleGroups] = useState([{ muscleType: "", reps: "", weight: "" }]);
   const [result, setResult] = useState("");
 
+  // Functions to handle muscle group operations
   const isMuscleGroupDisabled = (muscleGroup, currentIndex) => {
     return muscleGroups.some(
       (group, index) => group.muscleType === muscleGroup && index !== currentIndex
@@ -27,6 +30,7 @@ const MuscleGroupForm = () => {
     setMuscleGroups(newMuscleGroups);
   };
 
+  // Validate the form inputs
   const validateForm = () => {
     // Check if every muscle group is valid
     const validMuscleGroups = muscleGroups.every((group) => {
@@ -42,15 +46,17 @@ const MuscleGroupForm = () => {
     return validMuscleGroups;
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Validate the form
+    // Validate the form and display result message accordingly
     if (!validateForm()) {
       setResult("Please check your input values and try again.");
       return;
     }
   
+    // If the form is valid, send a POST request with the data
     try {
       const response = await postData("http://localhost:8000", { muscleGroups });
       const parsedResponse = JSON.parse(response);
@@ -60,6 +66,7 @@ const MuscleGroupForm = () => {
     }
   };
 
+  // Function to send POST request with the form data
   const postData = async (url = "", data = {}) => {
     const response = await fetch(url, {
       method: "POST",
@@ -72,16 +79,16 @@ const MuscleGroupForm = () => {
     return await response.text();
   };
 
-  
-
   return (
-    <div>
+    <div className={styles.generator}>
       <form onSubmit={handleSubmit} >
-        <div>
+        <div >
+        <h1> Workout Generator </h1>
           {muscleGroups.map((group, index) => (
-            <div key={index} className="muscle-group">
+            <div key={index} className={styles.inputGroup}>
               <label htmlFor="muscle-type">Muscle Type: </label>
               <select
+              
                 value={group.muscleType}
                 onChange={(e) => updateMuscleGroup(index, "muscleType", e.target.value)}
                 required
@@ -106,8 +113,9 @@ const MuscleGroupForm = () => {
                   Legs
                 </option>
               </select>
-              <label htmlFor="reps"> Reps: </label>
+              <label htmlFor="reps"> Amount of Reps: </label>
               <input
+                className={styles.inputField2}
                 type="number"
                 required
                 min="1"
@@ -116,8 +124,9 @@ const MuscleGroupForm = () => {
                 value={group.reps}
                 onChange={(e) => updateMuscleGroup(index, "reps", parseInt(e.target.value))}
               />
-              <label htmlFor="weight"> Weight: </label>
+              <label htmlFor="weight"> Weight (kg): </label>
               <input
+                className={styles.inputField2}
                 type="number"
                 required
                 min="0"
@@ -126,7 +135,6 @@ const MuscleGroupForm = () => {
                 value={group.weight}
                 onChange={(e) => updateMuscleGroup(index, "weight", parseInt(e.target.value))}
               />
-              <label htmlFor="weight">  </label>
               <button className={styles.button}
                 type="button"
                 onClick={() => removeMuscleGroup(index)}
@@ -134,19 +142,20 @@ const MuscleGroupForm = () => {
               >
                 Remove
               </button>
+              <br/>
             </div>
           ))}
         </div>
         <button 
           type="button"
           onClick={addMuscleGroup} 
-          className={styles.button}
+          className={styles.addButton}
           disabled={muscleGroups.length >= 6}
         >
             Add Muscle Group
         </button >
-        <label htmlFor="weight">  </label>
-        <button type="submit" className={styles.button}>Submit</button>
+        <label> </label>
+        <button type="submit" className={styles.submitButton}>Submit</button>
       </form>
       <div>
         {Array.isArray(result) ? (
@@ -155,8 +164,8 @@ const MuscleGroupForm = () => {
             <tr>
               <th>Muscle Type</th>
               <th>Exercise Description</th>
-              <th>Reps</th>
-              <th>Weight</th>
+              <th>Amount of Reps</th>
+              <th>Weight (kg)</th>
             </tr>
           </thead>
           <tbody>
@@ -171,8 +180,8 @@ const MuscleGroupForm = () => {
           </tbody>
         </table>
       ) : (
-        <p>{result}</p>
-      )}
+        <p>{typeof result === 'string' ? result : 'Error occurred, please check your input.'}</p>
+        )}
       </div>
 
     </div>
