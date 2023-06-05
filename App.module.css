@@ -1,0 +1,280 @@
+.outputTable {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 75%;
+  }
+  
+  .outputTable th,
+  .outputTable td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .outputTable th {
+    background-color: #230e47;
+    font-weight: bold;
+    color: rgb(222, 225, 159);
+  }
+  
+  .outputTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .button {
+    background-color: #230e47;
+    color: rgb(222, 225, 159);
+    border: none;
+    padding: 3px 16px;
+    cursor: pointer;
+  }
+
+  .button2 {
+    background-color: #230e47;
+    color: rgb(222, 225, 159);
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+  }
+
+  .button3 {
+    background-color: #230e47;
+    color: rgb(222, 225, 159);
+    border: none;
+    padding: 20px 60px;
+    cursor: pointer;
+    margin: 20px;
+  }
+
+  .button4 {
+    margin-top: 10px;
+    background-color: #230e47;
+    color: rgb(222, 225, 159);
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+  }
+
+  .button5 {
+    background-color: #230e47;
+    color: rgb(222, 225, 159);
+    border: none;
+    padding: 30px 80px;
+    cursor: pointer;
+    margin: 20px;
+  }
+
+  .formcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .contentContainer {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .Profile {
+    flex: 1;
+    max-width: 300px;
+    border-right: 1px solid #ccc;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  
+  main {
+    flex: 3;
+  }
+  
+  .profilelook {
+    width: 100%;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .diaryTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .diaryTable th,
+  .diaryTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .diaryTable th {
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
+  
+  .diaryTable input[type="number"],
+  .diaryTable input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+  }
+  
+.diaryInputs {
+  margin: 1rem 0;
+}
+
+.bmiContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.bmiValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.1rem;
+}
+
+.bmiCategory {
+  font-size: 1.25rem;
+  color: #444;
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.dailyDiary {
+  margin: 0 auto;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+
+
+.inputGroup {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exercise {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.addButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.5rem 3rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.submitButton {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 3rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.inputField1 {
+  width: 110%;
+  max-width: 110px;
+  text-align: center;
+}
+
+.inputField2 {
+  width: 300%;
+  max-width: 300px; 
+  text-align: center;
+}
+
+.inputField3 {
+  width: 500%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.inputField4 {
+  width: 120%;
+  max-width: 120px;
+  text-align: center;
+}
+
+.chartsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.chart {
+  margin-bottom: 20px;
+}
+
+.recommendation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.recommendations {
+  width: 70%;
+  margin-left: 20px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+
+.goals {
+  width: 48%;
+  margin: 100px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+
+.generator {
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+
+.recommendations2 {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.recommendation2 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.exerciseDescription {
+  margin: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
