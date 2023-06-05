@@ -88,7 +88,7 @@ const MuscleGroupForm = () => {
             <div key={index} className={styles.inputGroup}>
               <label htmlFor="muscle-type">Muscle Type: </label>
               <select
-              
+                id="muscle-type"
                 value={group.muscleType}
                 onChange={(e) => updateMuscleGroup(index, "muscleType", e.target.value)}
                 required
@@ -115,6 +115,7 @@ const MuscleGroupForm = () => {
               </select>
               <label htmlFor="reps"> Amount of Reps: </label>
               <input
+                id="reps"
                 className={styles.inputField2}
                 type="number"
                 required
@@ -126,6 +127,7 @@ const MuscleGroupForm = () => {
               />
               <label htmlFor="weight"> Weight (kg): </label>
               <input
+                id="weight"
                 className={styles.inputField2}
                 type="number"
                 required

@@ -46,15 +46,15 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();     // Prevent default form submission behavior
 
-    // Check if password meets the criteria
-    if (!validatePassword(password)) {
-      setError('Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character.');
-      return;
-    }
-
     // Check if email format is correct
     if (!validateEmail(email)) {
       setError('Invalid Email');
+      return;
+    }
+
+    // Check if password meets the criteria
+    if (!validatePassword(password)) {
+      setError('Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character.');
       return;
     }
 
@@ -115,7 +115,7 @@ const Register = () => {
       <label htmlFor="email">Email:</label>
       <input
         className={styles.inputField2}
-        type="email"
+        type="text"
         id="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -132,10 +132,11 @@ const Register = () => {
         maxLength={30}
         required
       />
-      <label>Confirm Password: </label>
+      <label htmlFor="confirmPassword">Confirm Password:</label>
         <input
           className={styles.inputField2}
           type="password"
+          id="confirmPassword"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           maxLength={30}

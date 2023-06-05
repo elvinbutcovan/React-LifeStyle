@@ -208,8 +208,10 @@ const Profile = ({ updateUserData }) => {
     <div className={styles.Profile}>
       <form onSubmit={handleSubmit}>
       <h2>Profile</h2>
-        <label>Name: </label>
+        <label htmlFor="name">Name: </label>
         <input
+          required
+          id="name"
           className={styles.profilelook}
           type="text"
           value={name}
@@ -218,8 +220,10 @@ const Profile = ({ updateUserData }) => {
           maxLength="50"
         />
         <br />
-        <label>Age: </label>
+        <label htmlFor="age">Age: </label>
         <input
+          required
+          id="age"
           className={styles.profilelook}
           type="number"
           value={age}
@@ -228,8 +232,10 @@ const Profile = ({ updateUserData }) => {
           max="120"
         />
         <br />
-        <label>Gender: </label>
+        <label htmlFor="gender">Gender: </label>
         <select
+          required
+          id="gender"
           className={styles.profilelook}
           value={gender}
           onChange={(e) => setGender(e.target.value)}
@@ -240,8 +246,10 @@ const Profile = ({ updateUserData }) => {
           <option value="other">Other</option>
         </select>
         <br />
-        <label>Weight (kg): </label>
+        <label htmlFor="weight">Weight (kg): </label>
         <input
+          required
+          id="weight"
           className={styles.profilelook}
           type="number"
           value={weight}
@@ -250,8 +258,10 @@ const Profile = ({ updateUserData }) => {
           max="500"
         />
         <br />
-        <label>Height (cm): </label>
+        <label htmlFor="height">Height (cm): </label>
         <input
+          required
+          id="height"
           className={styles.profilelook}
           type="number"
           value={height}
@@ -260,8 +270,10 @@ const Profile = ({ updateUserData }) => {
           max="300"
         />
         <br />
-        <label>Activity Level: </label>
+        <label htmlFor="activityLevel">Activity Level: </label>
         <select
+          required
+          id="activityLevel"
           className={styles.profilelook}
           value={activityLevel}
           onChange={(e) => setActivityLevel(e.target.value)}
@@ -283,9 +295,10 @@ const Profile = ({ updateUserData }) => {
       </div>
       <img src="/images/body-mass-index-bmi-chart.jpg" alt="BMI" className={styles.image} />
       <br />
-      <h2>Change Password</h2>
-      <label>New Password: </label>
+      <h2>Change Password Option</h2>
+      <label htmlFor="newPassword">New Password: </label>
         <input
+          id="newPassword"
           className={styles.profilelook}
           type="password"
           value={newPassword}
@@ -293,8 +306,9 @@ const Profile = ({ updateUserData }) => {
           maxLength={30}
         />
         <br />
-        <label>Confirm New Password: </label>
+        <label htmlFor="confirmNewPassword">Confirm New Password: </label>
         <input
+          id="confirmNewPassword"
           className={styles.profilelook}
           type="password"
           value={confirmNewPassword}

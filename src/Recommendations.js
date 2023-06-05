@@ -63,15 +63,15 @@ const Recommendations = ({ age, weight, height, gender, activityLevel }) => {
       <label>Please note that these recommendations are general guidelines and may not be suitable for everyone. 
         Individual needs can vary, and it's always a good idea to consult with a healthcare professional for personalized advice.</label>
       <label>(Complete profile to receive recommendations)</label>      
-      <div className={styles.recommendation}>
+      <div className={styles.recommendation} data-testid="recommendations-container">
         <h4>Daily Caloric Needs:</h4>
         <p>{calculateDailyCaloricNeeds()} kcal</p>
       </div>
-      <div className={styles.recommendation}>
+      <div className={styles.recommendation}data-testid="recommendations-container2">
         <h4>Daily Water Intake:</h4>
         <p>{calculateDailyWaterIntake()} ml</p>
       </div>
-      <div className={styles.recommendation}>
+      <div className={styles.recommendation}data-testid="recommendations-container3">
         <h4>Sleep Recommendation:</h4>
         <p>{sleepRecommendation()}</p>
       </div>

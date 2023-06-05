@@ -76,8 +76,9 @@ const Goals = ({ updateGoals }) => {
       <h2>Set Your Goals</h2>
       <form onSubmit={handleSubmit}>
         <div className={styles.inputGroup}>
-        <label>Calorie Goal: </label>
+        <label htmlFor="calorieGoal">Calorie Goal: </label>
         <input
+          id="calorieGoal" 
           className={styles.inputField4}
           type="number"
           value={calorieGoal}
@@ -88,8 +89,9 @@ const Goals = ({ updateGoals }) => {
         </div>
         <br />
         <div className={styles.inputGroup}>
-        <label>Water Goal (ml): </label>
+        <label htmlFor="waterGoal">Water Goal (ml): </label>
         <input
+          id="waterGoal"
           className={styles.inputField4}
           type="number"
           value={waterGoal}
@@ -100,8 +102,9 @@ const Goals = ({ updateGoals }) => {
         </div>
         <br />
         <div className={styles.inputGroup}>
-        <label>Sleep Goal (hours): </label>
+        <label htmlFor="sleepGoal">Sleep Goal (hours): </label>
         <input
+          id="sleepGoal"
           className={styles.inputField4}
           type="number"
           value={sleepGoal}
